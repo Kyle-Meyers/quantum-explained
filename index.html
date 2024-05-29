@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Computers Explained</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        #description {
+            margin: 0 auto;
+            max-width: 78ch;
+            padding: 20px;
+        }
+
+        #description h1 {
+            color: #444;
+            font-size: 40px;
+            font-weight: 450;
+            margin-top: 60px;
+            margin-bottom: 12px;
+        }
+
+        #description h2 {
+            color: #444;
+            font-size: 32px;
+            font-weight: 450;
+            margin-top: 44px;
+            margin-bottom: 8px;
+        }
+
+        #description h3 {
+            color: #444;
+            font-size: 24px;
+            font-weight: 450;
+            margin-top: 44px;
+            margin-bottom: 8px;
+        }
+
+        #description p {
+            margin: 16px 0;
+        }
+
+        #description p img {
+          vertical-align: middle;
+        }
+
+        #description img {
+          width: 100%
+        }
+
+        #description video {
+          width: 100%;
+        }
+
+        #description .caption {
+          font-size: 13px;
+          margin-top: 5px;
+        }
+
+        #description a {
+          color: #3273DC;
+          text-decoration: none;
+        }
+
+        #description .caption a {
+            color: inherit;
+        }
+
+        #description a:hover {
+          text-decoration: underline;
+        }
+
+        .equation {
+            display: block;
+            margin: 20px 0;
+            font-family: "Courier New", monospace;
+        }
+
+        #shors-container {
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #shors-container label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        #shors-container input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        #shors-container button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        #shors-container button:hover {
+            background-color: #0056b3;
+        }
+
+        #shors-text {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            background-color: #ffffff;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        #shors-text p {
+            margin: 0;
+            padding: 5px 0;
+        }
+
+        #shors-text button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #shors-text button:hover {
+            background-color: #218838;
+        }
+
+        #footer {
+            font-size: 12px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        #footer p {
+            margin: 5px 0;
+        }
+        
+        #footer a {
+            display: block;
+            margin-top: 5px;
+        }
+    </style>
+    <script type="text/javascript" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+    <div id="description">
+        <h1>How Do Regular Computers Work?</h1>
+        <p>
+            Regular computers work by acting on tiny switches called bits. Simply by changing the 1’s and 0’s of these switches, computers can do anything, including loading and displaying this website, looking at where your mouse is, running Windows, literally anything.
+        </p>
+        <p>
+            Bits all change based on rules set up in logic gates. Here are the main logic gates and what their inputs and outputs are:
+        </p>
+        <p>
+            <strong>Different Types of Logic Gates:</strong>
+        </p>
+        <img src="https://www.gsnetwork.com/wp-content/uploads/2023/01/digital-logic-gates-symbols-and-truth-tables.jpg" alt="Logic Truth Tables">
+        <p class="caption">
+          Image Courtesy of Global Science Network
+        </p>
+        <p>
+            Try building your own logic gates, and see what happens with various inputs:
+        </p>
+        <iframe src="logic-gates-simulator/index.html" width=100% height=600px frameBorder="0"></iframe>
+        <p class="caption">
+          Interactive Courtesy of <a href="https://academo.org/">academo.org</a>
+        </p>
+        <p>
+            Here’s a challenge: Every single gate can be simulated using only NAND, or only NOR. Try to take two inputs and output the same results as each of the different gates using only NAND gates or only NOR gates.
+        </p>
+        <p>
+            These switches are all extremely small, about the length of 20 atoms. They have been getting smaller and smaller over time, but soon they won’t be able to physically get smaller. When they reach five atoms across, electrons can leak out and short-circuit the chip or generate so much heat the chips melt. Moore’s Law, stating that the size of transistors (bits) will halve in size every 2 years, will soon be impossible.
+        </p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Moore%27s_Law_Transistor_Count_1970-2020.png" alt="Moore's law diagram">
+        <p class="caption">
+          Image Courtesy of Wikipedia
+        </p>
+
+        <h1>How Do Quantum Computers Work?</h1>
+        <p>
+            Quantum computers work on perhaps the smallest unit possible, the atom. Each atom is called a qubit. Although yes, these are the smallest a bit can be, that is not the main appeal of quantum computers. They are so much faster than regular computers not because of their size, but because of the properties of atoms.
+        </p>
+
+        <h2>Spin</h2>
+        <p>
+          What exactly is a quantum computer looking at when measuring a qubit? There’s no “switch”, so what it’s measuring is the spin of the atom. When typical magnets are shot between two opposing magnets, the opposing magnets create a force that deflects the smaller magnet up or down depending on its rotation. It can land anywhere between straight up and straight down. However, when electrically neutral atoms are shot through these two magnets, they either face exactly up or exactly down, depending on the spin of the atoms. This means atoms behave like magnets but with only two possible directions: north-south and south-north exactly. This direction of the atom is what the quantum computer is measuring.
+        </p>
+        <video src="assets/Quantum_spin_and_the_Stern-Gerlach_experiment.ogv.720p.vp9.webm" type="video/webm" controls></video>
+        <p class="caption">
+          Video Courtesy of <a href="https://toutestquantique.fr/">toutestquantique.fr</a>
+        </p>
+        <iframe src="https://quantumatlas.umd.edu/graphic/stern-gerlach/embed" height="100%" width="100%" allowfullscreen></iframe>
+        <!-- POSSIBLY REMOVE ABOVE IFRAME IN FUTURE IF IT CONTINUES TO NOT WORK -->
+        <p class="caption">
+          Interactive Courtesy of <a href="https://quantumatlas.umd.edu/">The Quantum Atlas</a>
+        </p>
+        
+        <h2>Superposition</h2>
+        <p>
+          Atoms can be in multiple places at the same time, therefore qubits can be both 1 and 0 at the same time. The problem is, when measured, the atom collapses into one truly random state. When we express superposition, we’re expressing the probability of the atom collapsing into 1 or 0 when measured. 
+        </p>
+        <video src="assets/12_superposition_en.webm" type="video/webm" controls></video>
+        <p class="caption">
+          Video Courtesy of <a href="https://toutestquantique.fr/">toutestquantique.fr</a>
+        </p>
+      
+      
+        <p>
+          This seems useless at first, but quantum computers have special algorithms that act on the entire superposition at the same time. It acts on every possibility simultaneously and does special computations to get all the outcomes it doesn’t want to destroy each other, leaving only the correct answer to be measured. 
+        </p>
+        <p>
+          For example, 1000 bits can only represent ONE of the numbers from 0 to (2^1000)-1, while 1000 qubits can represent ALL numbers from 0 to (2^1000)-1 simultaneously. If we do a special algorithm that works in parallel and cleverly outputs a single useful result, you can go very very fast. It needs to run an algorithm only once for only one superposition of all the numbers, compared to up to (2^1000)-1 repetitions of an algorithm, one for each number.
+        </p>
+
+        <h2>Entanglement</h2>
+        <p>
+          Another important property of atoms is entanglement. This is when atoms “connect” to each other like telepathy. They aren’t physically connected, but one’s state controls the other, instantaneous changes happen even when connected from light-years apart. No one knows how this works. In quantum computing, atoms need to be entangled for it to work. This allows for one’s state to affect another, so that an operation on one qubit does the same operation on all the other qubits. This is also useful for certain algorithms that measure things to remove certain states, such as Shor’s algorithm I talk about later. It wants the measurement of one qubit to affect the superpositions of others without collapsing those states (remember to keep a superposition you cannot measure the qubit), which can only happen with entanglement. Without entanglement, quantum computers cannot work.
+        </p>
+        <img src="https://quantumatlas.umd.edu/static/entanglement_chart-c1972bded042d9571e841ee153e5d690.png" alt="Entanglement example">
+        <p class="caption">
+          Image courtesy of <a href="https://quantumatlas.umd.edu/">The Quantum Atlas</a>
+        </p>
+
+        <h1>Algorithms</h1>
+
+        <h2>Shor's Algorithm</h2>
+        <p>
+          Shor’s Algorithm is an algorithm to factor a number. This can be used to break encryption, which keeps all info on the internet safe. Most encryption, or garbling of data, is encrypted in a way such that it can only be decrypted if someone has the factors of a number, or spends a ridiculous and impractical amount of time finding the factors of the number.  But Shor’s Algorithm makes it incredibly simple, and could access a huge amount of hidden information. A theoretical 4099-qubit quantum computer would be 946,080,000,000,000,000,000 times faster than a regular computer with 15613564 times less units of info. 
+        </p>
+        <p>
+          Shor’s Algorithm essentially boils down to choosing a random guess, and turning it into what’s likely a correct guess. 
+        </p>
+
+        <h3>The Math</h3>
+        <p>Start with a number to factor \( N \), and a random guess \( g \). First, try to find the greatest common divisor of \( N \) and \( g \). If there is one (not including 1), we’re done, that’s it, we found a factor of \( N \). But usually it won’t be right.</p>
+
+        <p>One essential property of \( N \) and \( g \) is that because they’re coprime (no common factors), some \( g^p \) has to equal some \( m \cdot N + 1 \). For example:</p>
+
+        <ul>
+          <li>\( 7, 15:  7^4 = 160 \cdot 15 + 1 \)</li>
+          <li>\( 42, 13:  42^3 = 5699 \cdot 13 + 1 \)</li>
+        </ul>
+
+        <p>\( g^p = m \cdot N + 1 \) can be turned into:</p>
+        <div class="equation">
+            \( g^p - 1 = m \cdot N \)
+        </div>
+        <div class="equation">
+            \( (g^{\frac{p}{2}} + 1)(g^{\frac{p}{2}} - 1) = m \cdot N \)
+        </div>
+
+        <p>\( (g^{\frac{p}{2}} + 1) \) and \( (g^{\frac{p}{2}} - 1) \) are the two new, better guesses. So it just needs to find some value \( p \) that creates a multiple of \( N \) + 1. It then takes the two better guesses, and gets the GCD of each value and \( N \), and those final results have a 37.5% chance of being factors of \( N \).</p>
+
+        <p>For example, if \( N = 15 \) and \( g = 7 \), we find \( p \) to be 4 and therefore:</p>
+        <div class="equation">
+            \( 7^{\frac{4}{2}} - 1 = 48 \) and \( 7^{\frac{4}{2}} + 1 = 50 \)
+        </div>
+        <div class="equation">
+            \( \text{GCD}(48, 15) = 3 \)
+        </div>
+        <div class="equation">
+            \( \text{GCD}(50, 15) = 5 \)
+        </div>
+        <p>So the factors of 15 are 3 and 5.</p>
+
+        <p>It’s only correct 37.5% of the time because of two possible cases:</p>
+        <ul>
+            <li>One new value may be a multiple of \( N \), so the other is a factor of \( m \), making neither useful.</li>
+            <li>\( p \) in \( g^p = m \cdot N + 1 \) may be odd, which makes \( \frac{p}{2} \) a fraction exponent which means we can’t find the answer.</li>
+        </ul>
+
+        <p>Up to this point, this can be done on normal computers, but it’s not very useful because it’s still slow.</p>
+
+        <h3>The Quantum Computer Implementation</h3>
+        <p>On quantum computers, \( p \) is found by using a superposition with numbers that destroy each other if they aren’t correct.</p>
+
+        <p>First it uses a superposition of possible \( p \)'s, then turns that into a superposition of all \( p \)'s and \( g^p \)'s, then turns that into a superposition of all \( p \)'s and how much bigger they are than a multiple of \( N \) (remainder)</p>
+
+        <p>But how do we get all incorrect answers to destroy each other?</p>
+
+        <p>Here’s the essential principle:</p>
+
+        <p>Let’s say one of the random guesses is 26, and it happens to be 5 more than a multiple of \( N \)</p>
+
+        <div class="equation">
+            \( g^{26} = m \cdot N + 5 \)
+        </div>
+
+        <p>If we find the correct \( p \) value that makes \( m \cdot N + 1 \), that means:</p>
+        <div class="equation">
+            \( g^{26+p} \) = \( m_{1} \cdot N + 5 \)
+        </div>
+        <div class="equation">
+            \( g^{26+2p} = m_{2} \cdot N + 5 \)
+        </div>
+        <p>And so on for any multiple of \( p \).</p>
+
+        <p>So now we have a superposition of all \( p \) values and how much bigger their \( g^p \) are than a multiple of \( N \) (\( r \) value). If we randomly measure one of these \( r \) values, we are left with a superposition of all \( p \) values that have that \( r \) value. Now all of these \( p \) values are the correct \( p \) apart from each other, because adding a multiple of the correct \( p \) always leaves the same \( r \) value.</p>
+
+        <p>Without getting into exactly how it works, this is brought through a Quantum Fourier Transform, which outputs essentially how far apart each of these values are, \( \frac{1}{p} \). Take the reciprocal of that, and now we have a single output, \( p \).</p>
+
+        <div id="shors-container">
+            <label for="shors-n">Number to Factor: </label><input id="shors-n" type="number" value="15" />
+            <button id="shors-start" onclick="shorsStart();">Factor</button>
+            <br><label for="shors-g" id="shors-g-label" style="display: none;">Optional: choose guess (blank = random): </label><input id="shors-g" type="number" style="display: none;" min="2" onchange="enforceMinMax();" />
+            <button id="shors-run" onclick="shors();" style="display: none;">Run The Algorithm!</button>
+            <div id="shors-text">
+                <p id="shors-text-1"></p>
+                <p id="shors-text-2"></p>
+                <p id="shors-text-single"></p>
+                <button id="shors-previous" style="display: none;" onclick="previous();">Previous</button>
+                <button id="shors-next" style="display: none;" onclick="next();">Next</button>
+            </div>
+        </div>
+        <script src="shors.js"></script>
+        <script>
+            function enforceMinMax() {
+              el = document.getElementById("shors-g");
+              if (el.value != "") {
+                if (parseInt(el.value) < parseInt(el.min)) {
+                  el.value = el.min;
+                }
+                if (parseInt(el.value) > parseInt(el.max)) {
+                  el.value = el.max;
+                }
+              }
+            }
+        </script>
+
+        <h2>Grover's Algorithm</h2>
+        <p>
+          Grover’s Algorithm is used to find an element in a list in on average sqrt(n) guesses instead of n/2. The algorithm starts in a state that is a superposition of all n elements in the list. At this point, it already knows where the value it’s searching for is, but it can’t just measure it because then it will randomly choose an item in the list. So instead it applies something called the “Grover diffusion operator”, which essentially inverts and uninverts the correct answer, which increases the probability of it being picked when measured. This approaches 1 over many iterations of the operator, but it will never be certain. It will eventually reach \( \frac{\pi \sqrt{n}}{4} \) probability. This is why it needs on average sqrt(n) guesses to correctly randomly guess the right option in a list. In a list of 1,000,000 items, this means it requires on average 1000 guesses compared to 500,000.
+        </p>
+        <img src="https://www.researchgate.net/publication/369104065/figure/fig6/AS:11431281126816081@1678820530915/Amplitude-changes-in-Grovers-algorithm.png" alt="Grover's Algorithm figure">
+        <p class="caption">
+            Image courtesy of ResearchGate
+        </p>
+
+        <h1>Theoretical Applications of Quantum Computers</h1>
+        <h2>Encryption</h2>
+        <h3>Breaking It</h3>
+        <p>
+            As explained above, Shor's Algorithm can factor numbers ridiculously faster than classical computers. The extremely popular RSA encryption method banks on not being able to factor large numbers quickly. But Shor's Algorithm destroys that, allowing Quantum Computers to essentially access all information on the internet. This would/will be devestating for security.
+        </p>
+        <h3>Improving It</h3>
+        <p>
+            Quantum Computers can also create new encyrption keys that and encoded and transported through qubits, making them even stronger than current encryption. These would be safer than current encyrption methods from a both classical and quantum standpoint. For more info, check out <a href="https://quantumxc.com/blog/quantum-cryptography-explained/"> this article</a>.
+        </p>
+        <h2>Science</h2>
+        <p>
+            Quantum Computers can, obviously, simulate Quantum Processes really well. Because of this they can simluate entire systems, compounds, and chemicals really well, extremely accurately and quickly. This allows for larger molecules to be simulated and can simulate interactions between all proteins in the human genome. This has profound implications for the field of pharmaceutics, where virtual labratories with incredibly high accuracy and no ethical concerns may become the norm.
+        </p>
+        <h2>Parallel Computing</h2>
+        <p>
+            Quantum Computers are masters at parallel computing, in which multiple calculations are preformed at the same time. All calculations in a CPU of a computer are preformed sequentially. Quantum Computers, because of superposition, can do many calculations at the same time. Basically they are just better than traditional computers in processing information. They're faster in terms of equations and lists, they're able to compute things at the same time, and they take much less data to do the same thing as a traditional computer.
+        </p>
+
+        <h1>Why Quantum Computers are currently impractical</h1>
+        <ul>
+            <li>Shor's algorithm, the algorithm I talked about earlier that may be used to break encryption, has only factored 35. And that was only once. It has only factored 21 consistently. This is incredibly low, a regular computer can factor 35 in less than a milisecond.</li> 
+            <li>The longest time that the largest quantum computer has been in operation (atoms were entangled) is 0.0008 seconds. This is because of the extremely high sensitivity of qubits.</li>
+            <li>Entanglement can only happen when almost absolute zero temperature. Quantum Computers need to be in special containment areas where they can operate at almost absolute zero temperature. And as I just explained, this still only allows it to work for literal microseconds.
+                <ul>
+                    <li>However, photosynthesis is done using entanglement, and that occurs at room temperature. So if we could understand how entanglement occurs in those conditions, we can apply it to Quantum Computers.</li>
+                </ul>
+            </li>
+            <li>They're extremely expensive - At least $10,000,000 for a good one</li>
+        </ul>
+        <div id="footer">
+            <p>Created by Kyle Meyers</p>
+            <a href="https://github.com/Kyle-Meyers/quantum-explained">Github</a>
+        </div>
+    </div>
+</body>
+</html>

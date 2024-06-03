@@ -6,6 +6,10 @@
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/6554/6554122.png">
     <title>Quantum Computers Explained</title>
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -14,6 +18,43 @@
             color: #555;
         }
 
+        #toc-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .toc-header a, 
+        .toc-subheader a,
+        .toc-subsubheader a {
+            cursor: pointer;
+            color: #444;
+            text-decoration: none;
+        }
+
+        .toc-header:hover,
+        .toc-subheader:hover,
+        .toc-subsubheader:hover {
+            text-decoration: underline;
+        }
+
+        .toc-header {
+            font-weight: bold;
+        }
+
+        .toc-subheader {
+            margin-left: 15px;
+        }
+
+        .toc-subsubheader {
+            margin-left: 30px;
+        }
+        
         #description {
             margin: 0 auto;
             max-width: 78ch;
@@ -175,8 +216,32 @@
     </script>
 </head>
 <body>
+    <div id="toc-container">
+        <div id="toc-button">&#9776;</div>
+        <div class="toc-content" style="display: none;">
+            <div class="toc-header"><a href="#how-do-regular-computers-work">How Do Regular Computers Work?</a></div>
+            <div class="toc-header"><a href="#how-do-quantum-computers-work">How Do Quantum Computers Work?</a></div>
+            <div class="toc-subheader"><a href="#spin">Spin</a></div>
+            <div class="toc-subheader"><a href="#superposition">Superposition</a></div>
+            <div class="toc-subheader"><a href="#entanglement">Entanglement</a></div>
+            <div class="toc-header"><a href="#algorithms">Algorithms</a></div>
+            <div class="toc-subheader"><a href="#shors">Shor's Algorithm</a></div>
+            <div class="toc-subsubheader"><a href="#shors-math">The Math</a></div>
+            <div class="toc-subsubheader"><a href="#shors-quantum">The Quantum Computer Implementation</a></div>
+            <div class="toc-subsubheader"><a href="#shors-container">Shor's Algorithm Simulator</a></div>
+            <div class="toc-subsubheader"><a href="#shors-video">Video example</a></div>
+            <div class="toc-subheader"><a href="#grovers">Grover's Algorithm</a></div>
+            <div class="toc-header"><a href="#applications">Theoretical Applications of Quantum Computers</a></div>
+            <div class="toc-subheader"><a href="#encryption">Encryption</a></div>
+            <div class="toc-subsubheader"><a href="#encryption-breaking">Breaking It</a></div>
+            <div class="toc-subsubheader"><a href="#encryption-improving">Improving It</a></div>
+            <div class="toc-subheader"><a href="#science">Science</a></div>
+            <div class="toc-subheader"><a href="#parallel-computing">Parallel Computing</a></div>
+            <div class="toc-header"><a href="#impractical">Why Quantum Computers are currently impractical</a></div>
+        </div>
+    </div>
     <div id="description">
-        <h1>How Do Regular Computers Work?</h1>
+        <h1 id="how-do-regular-computers-work">How Do Regular Computers Work?</h1>
         <p>
             Regular computers work by acting on tiny switches called bits. Simply by changing the 1’s and 0’s of these switches, computers can do anything, including loading and displaying this website, looking at where your mouse is, running Windows, literally anything.
         </p>
@@ -208,12 +273,12 @@
           Image Courtesy of Wikipedia
         </p>
 
-        <h1>How Do Quantum Computers Work?</h1>
+        <h1 id="how-do-quantum-computers-work">How Do Quantum Computers Work?</h1>
         <p>
             Quantum computers work on perhaps the smallest unit possible, the atom. Each atom is called a qubit, short for "Quantum bit". Although yes, these are the smallest a bit can be, that is not the main appeal of quantum computers. They are so much faster than regular computers not because of their size, but because of the properties of atoms.
         </p>
 
-        <h2>Spin</h2>
+        <h2 id="spin">Spin</h2>
         <p>
           What exactly is a quantum computer looking at when measuring a qubit? There’s no “switch”, so what it’s measuring is the "spin" of the atom. But what does that mean? An experiment called the "Stern-Gorlach experiment" showed that atoms are always facing either exactly up, 1, oe exactly down, 0. When typical magnets are shot between two opposing magnets, the opposing magnets create a force that deflects the smaller magnet up or down depending on its rotation. It can land anywhere between straight up and straight down. However, when electrically neutral atoms are shot through these two magnets, they either face exactly up or exactly down. This means atoms behave like magnets but with only two possible directions: north-south and south-north exactly. This direction of the atom is what the quantum computer is measuring. For a visual explanation, see the video below:
         </p>
@@ -227,7 +292,7 @@
           Interactive Courtesy of <a href="https://quantumatlas.umd.edu/">The Quantum Atlas</a>
         </p> -->
         
-        <h2>Superposition</h2>
+        <h2 id="superposition">Superposition</h2>
         <p>
           The way qubits are expressed is usually as two numbers, the probability of being 1 and the probability of being 0. This is because atoms can be in multiple places at the same time, therefore qubits can be both 1 and 0 at the same time. The problem is, when measured, the atom collapses into one random state. So when we don't look at the atom, it has a different probability of being 1 or 0, but when we look at it or measure it, it becomes either 1 or 0 only based on those probabilities. Qubits are written as the probability of the atom collapsing into 1 or 0 when measured. 
         </p>
@@ -247,7 +312,7 @@
           On a classical computer, 32 bits can only represent ONE of the numbers from 0 to 4294967295, while 32 qubits can represent ALL numbers from 0 to 4294967295 simultaneously. If we have a special algorithm that cleverly makes all results except for the correct one destroy each other or lower their probabilities, you can go very very fast. It needs to run an algorithm only once for only one superposition of all the numbers, compared to up to 4294967295 repetitions of an algorithm, one for each number.
         </p>
 
-        <h2>Entanglement</h2>
+        <h2 id="entanglement">Entanglement</h2>
         <p>
           Another important property of atoms is entanglement. This is when atoms “connect” to each other like telepathy. They aren’t physically connected, but one’s state controls the other, instantaneous changes happen even when connected from light-years apart. No one knows how this works. In quantum computing, atoms need to be entangled for it to work. This allows for one’s state to affect another, so that an operation on one qubit does the same operation on all the other qubits. This is also useful for certain algorithms that measure things to remove certain states, such as Shor’s algorithm I talk about later. It wants the measurement of one qubit to affect the others without measuring them themselves (remember to keep a superposition you cannot measure the qubit), which can only happen with entanglement. Without entanglement, quantum computers cannot work.
         </p>
@@ -256,9 +321,9 @@
           Image courtesy of <a href="https://quantumatlas.umd.edu/">The Quantum Atlas</a>
         </p>
 
-        <h1>Algorithms</h1>
+        <h1 id="algorithms">Algorithms</h1>
 
-        <h2>Shor's Algorithm</h2>
+        <h2 id="shors">Shor's Algorithm</h2>
         <p>
           Shor’s Algorithm is an algorithm to factor a number. This can be used to break encryption, which keeps all info on the internet safe. Most encryption, or garbling of data, is encrypted in a way such that it can only be decrypted if someone has the factors of a number, or spends a ridiculous and impractical amount of time finding the factors of the number.  But Shor’s Algorithm makes it incredibly simple, and could access a huge amount of hidden information. A theoretical 4099-qubit quantum computer would be 946,080,000,000,000,000,000 times faster than a regular computer with 15613564 times less units of info. 
         </p>
@@ -266,7 +331,7 @@
           Shor’s Algorithm essentially boils down to choosing a random guess, and turning it into what’s likely a correct guess. 
         </p>
 
-        <h3>The Math</h3>
+        <h3 id="shors-math">The Math</h3>
         <p>Start with a number to factor \( N \), and a random guess \( g \). First, try to find the greatest common divisor of \( N \) and \( g \). If there is one (not including 1), we’re done, that’s it, we found a factor of \( N \). But usually it won’t be right.</p>
 
         <p>One essential property of \( N \) and \( g \) is that because they’re coprime (no common factors), some \( g^p \) has to equal some \( m \cdot N + 1 \). For example:</p>
@@ -307,7 +372,7 @@
 
         <p>Up to this point, this can be done on normal computers, but it’s not very useful because it’s still slow.</p>
 
-        <h3>The Quantum Computer Implementation</h3>
+        <h3 id="shors-quantum">The Quantum Computer Implementation</h3>
         <p>On quantum computers, \( p \) is found by using a superposition with numbers that destroy each other if they aren’t correct.</p>
 
         <p>First it uses a superposition of possible \( p \)'s, then turns that into a superposition of all \( p \)'s and \( g^p \)'s, then turns that into a superposition of all \( p \)'s and how much bigger they are than a multiple of \( N \) (remainder)</p>
@@ -361,10 +426,10 @@
               }
             }
         </script>
-        <h3>Video example:</h3>
+        <h3 id="shors-video">Video example:</h3>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/FRZQ-efABeQ?si=G-TjcT3L9dSzalEq&amp;start=25" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-        <h2>Grover's Algorithm</h2>
+        <h2 id="grovers">Grover's Algorithm</h2>
         <p>
           Grover’s Algorithm is used to find an element in a list in on average \( \sqrt{n} \) guesses instead of n/2. The algorithm starts in a state that is a superposition of all n elements in the list. At this point, it already knows where the value it’s searching for is, but it can’t just measure it because then it will randomly choose an item in the list. So instead it applies something called the “Grover diffusion operator”, which essentially inverts and uninverts the correct answer, which increases the probability of it being picked when measured. Repeating this over and over, it will eventually reach \( \frac{\pi \sqrt{n}}{4} \) probability of being picked. This is why it needs on average sqrt(n) guesses to correctly randomly guess the right option in a list. In a list of, for example, 1,000,000 items, this means it requires on average 1,000 guesses compared to 500,000.
         </p>
@@ -373,9 +438,9 @@
             Image courtesy of ResearchGate
         </p>
 
-        <h1>Theoretical Applications of Quantum Computers</h1>
-        <h2>Encryption</h2>
-        <h3>Breaking It</h3>
+        <h1 id="applications">Theoretical Applications of Quantum Computers</h1>
+        <h2 id="encryption">Encryption</h2>
+        <h3 id="encryption-breaking">Breaking It</h3>
         <p>
             As explained above, Shor's Algorithm can factor numbers ridiculously faster than classical computers. The extremely popular RSA encryption method banks on not being able to factor large numbers quickly. But Shor's Algorithm destroys that, allowing Quantum Computers to essentially access all information on the internet. This would/will be devestating for security.
         </p>
@@ -384,7 +449,7 @@
         <p class="caption">
             Image courtesy of Medium
         </p>
-        <h3>Improving It</h3>
+        <h3 id="encryption-improving">Improving It</h3>
         <p>
             Quantum Computers can also create new encyrption keys that are encoded and transported through qubits, making them even stronger than current encryption. These would be safer than current encyrption methods from a both classical and quantum standpoint. For more info, check out <a href="https://quantumxc.com/blog/quantum-cryptography-explained/"> this article</a>.
         </p>
@@ -392,16 +457,16 @@
         <p class="caption">
             Image courtesy of TechTarget
         </p>
-        <h2>Science</h2>
+        <h2 id="science">Science</h2>
         <p>
             Quantum Computers can, obviously, simulate quantum processes really well. Because of this they can simluate entire biological systems, chemical compounds, and most scientific things really well, extremely accurately and quickly. This can even theoretically simulate interactions between all proteins in the human genome. This has profound implications for the field of pharmaceutics, where virtual labratories with incredibly high accuracy and no ethical concerns may become the norm.
         </p>
-        <h2>Parallel Computing</h2>
+        <h2 id="parallel-computing">Parallel Computing</h2>
         <p>
             Quantum Computers are masters at parallel computing, in which multiple calculations are preformed at the same time. All calculations in a CPU of a regular computer are preformed in order. Quantum Computers, because of superposition, can do many calculations at the same time. Basically they are just better than traditional computers in processing information. They're faster in terms of equations and lists, they're able to compute things at the same time, and they take much less data to do the same thing as a traditional computer.
         </p>
 
-        <h1>Why Quantum Computers are currently impractical</h1>
+        <h1 id="impractical">Why Quantum Computers are currently impractical</h1>
         <ul>
             <li>Shor's algorithm, the algorithm I talked about earlier that may be used to break encryption, has only factored 35. And that was only once. It has only factored 21 consistently. This is incredibly low, a regular computer can factor 35 in less than a milisecond.</li> 
             <li>The longest time that the largest quantum computer has been in operation (atoms were entangled) is 0.0008 seconds. This is because of the extremely high sensitivity of qubits.</li>
@@ -417,5 +482,28 @@
             <a href="https://github.com/Kyle-Meyers/quantum-explained">Github</a>
         </div>
     </div>
+    <script>
+        // JavaScript for expanding and collapsing TOC
+        document.addEventListener("DOMContentLoaded", function() {
+            const tocContainer = document.getElementById("toc-container");
+            const tocButton = document.getElementById("toc-button");
+            const tocContent = document.querySelector(".toc-content");
+
+            tocButton.addEventListener("click", function() {
+                if (tocContent.style.display === "none") {
+                    tocContent.style.display = "block";
+                } else {
+                    tocContent.style.display = "none";
+                }
+            });
+
+            const tocSubheaders = document.querySelectorAll(".toc-subheader");
+            tocSubheaders.forEach(function(subheader) {
+                subheader.addEventListener("click", function() {
+                    tocContent.style.display = "block";
+                });
+            });
+        });
+    </script>
 </body>
 </html>

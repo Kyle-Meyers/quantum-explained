@@ -250,7 +250,7 @@ function shors() {
     } else {
         if (plusOne === N || minusOne === N) {
             outputs.push([`The algorithm seemed to work incorrectly. This can randomly happen depending on the g, so try again and hopefully it will work.`, `It didn't work because in this case, one of the guesses is ${N}, making their GCDs the trivial case of 1 and ${N}.`]);
-        } else if (N % plusOne === 0n || N % minusOne === 0n) {
+        } else if (plusOne % N === 0n || minusOne % N === 0n) {
             outputs.push([`The algorithm seemed to work incorrectly. This can randomly happen depending on the g, so try again and hopefully it will work.`, `It didn't work because in this case, one of the guesses is a multiple of ${N}, making their GCD values the trivial case of 1 and ${N}.`]);
         } else if (N % gcd1 === 0n && N % gcd2 === 0n) {
             outputs.push([`In this case, the GCDs didn't correctly find THE SAME PAIR of factors, but ${gcd1} is a factor, and so is ${gcd2}. Now it's easy to find the other factors using simple division.`, `The two pairs of factors found are ${gcd1} and ${N / gcd1}, and ${gcd2} and ${N / gcd2}`]);

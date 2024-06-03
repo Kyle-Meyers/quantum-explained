@@ -210,7 +210,11 @@ function shors() {
     let randomR = pAndR[Math.floor(Math.random() * pAndR.length)][1];
     pAndR = pAndR.filter(e => e[1] == randomR);
 
-    outputs.push([`Now let's measure a random remainder, ${randomR}. Because of the rules of entanglement, now the superposition only contains things with that remainder:`, formatList(pAndR, crop=false)]);
+    if (pAndR.length < 20) {
+        outputs.push([`Now let's measure a random remainder, ${randomR}. Because of the rules of entanglement, now the superposition only contains things with that remainder:`, formatList(pAndR, crop=false)]);
+    } else {
+        outputs.push([`Now let's measure a random remainder, ${randomR}. Because of the rules of entanglement, now the superposition only contains things with that remainder:`, formatList(pAndR)]);
+    }
 
     let p = pAndR[1][0] - pAndR[0][0];
 

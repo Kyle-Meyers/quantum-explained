@@ -232,7 +232,7 @@
 </head>
 <body>
     <div id="toc-container">
-        <div id="toc-button">&#9776;</div>
+        <div id="toc-button">☰</div>
         <div class="toc-content" style="display: none;">
             <div class="toc-header"><a href="#how-do-regular-computers-work">How Do Regular Computers Work?</a></div>
             <div class="toc-header"><a href="#how-do-quantum-computers-work">How Do Quantum Computers Work?</a></div>
@@ -253,6 +253,7 @@
             <div class="toc-subheader"><a href="#science">Science</a></div>
             <div class="toc-subheader"><a href="#parallel-computing">Parallel Computing</a></div>
             <div class="toc-header"><a href="#impractical">Why Quantum Computers are currently impractical</a></div>
+            <div class="toc-header"><a href="#resources">Additional Resources</a></div>
         </div>
     </div>
     <p id="title">Quantum Computers Explained</p>
@@ -275,9 +276,9 @@
             Try building your own logic gates, and see what happens with various inputs:
         </p>
         <iframe src="logic-gates-simulator/index.html" width=100% height=600px frameBorder="0"></iframe>
-        <!-- TEMPORY COMMENTING <p class="caption">
-          Interactive Courtesy of <a href="https://academo.org/" target="_blank" >academo.org</a>
-        </p> -->
+        <p class="caption">
+          Interactive Courtesy of <a href="https://academo.org/">academo.org</a>
+        </p>
         <p>
             Here’s a challenge: Every single gate can be simulated using only NAND, or only NOR. Try to take two inputs and output the same results as each of the different gates using only NAND gates or only NOR gates.
         </p>
@@ -296,16 +297,16 @@
 
         <h2 id="spin">Spin</h2>
         <p>
-          What exactly is a quantum computer looking at when measuring a qubit? There’s no “switch”, so what it’s measuring is the "spin" of the atom. But what does that mean? An experiment called the "Stern-Gorlach experiment" showed that atoms are always facing either exactly up, 1, oe exactly down, 0. When typical magnets are shot between two opposing magnets, the opposing magnets create a force that deflects the smaller magnet up or down depending on its rotation. It can land anywhere between straight up and straight down. However, when electrically neutral atoms are shot through these two magnets, they either face exactly up or exactly down. This means atoms behave like magnets but with only two possible directions: north-south and south-north exactly. This direction of the atom is what the quantum computer is measuring. For a visual explanation, see the video below:
+          What exactly is a quantum computer looking at when measuring a qubit? There’s no “switch”, so what it’s measuring is the "spin" of the atom. But what does that mean? An experiment called the "Stern-Gorlach experiment" showed that atoms are always facing either exactly up, 1, or exactly down, 0. When typical magnets are shot between two opposing magnets, the opposing magnets create a force that deflects the smaller magnet up or down depending on its rotation. It can land anywhere between straight up and straight down. However, when electrically neutral atoms are shot through these two magnets, they either face exactly up or exactly down. This means atoms behave like magnets but with only two possible directions: north-south and south-north exactly. This direction of the atom is what the quantum computer is measuring. For a visual explanation, see the video below:
         </p>
         <video src="assets/Quantum_spin_and_the_Stern-Gerlach_experiment.ogv.720p.vp9.webm" type="video/webm" controls></video>
         <p class="caption">
-          Video Courtesy of <a href="https://toutestquantique.fr/" target="_blank">toutestquantique.fr</a>
+          Video Courtesy of <a href="https://toutestquantique.fr/">toutestquantique.fr</a>
         </p>
         <!-- <iframe src="https://quantumatlas.umd.edu/graphic/stern-gerlach/embed" height="100%" width="100%" allowfullscreen></iframe>
         TO DO: GET THIS IFRAME TO WORK
         <p class="caption">
-          Interactive Courtesy of <a href="https://quantumatlas.umd.edu/" target="_blank">The Quantum Atlas</a>
+          Interactive Courtesy of <a href="https://quantumatlas.umd.edu/">The Quantum Atlas</a>
         </p> -->
         
         <h2 id="superposition">Superposition</h2>
@@ -314,7 +315,7 @@
         </p>
         <video src="assets/12_superposition_en_cropped.mp4" type="video/mp4" controls></video>
         <p class="caption">
-          Video Courtesy of <a href="https://toutestquantique.fr/" target="_blank">toutestquantique.fr</a>
+          Video Courtesy of <a href="https://toutestquantique.fr/">toutestquantique.fr</a>
         </p>
         <img src="https://poetryinphysics.files.wordpress.com/2017/03/qubit.png?w=743">
         <p class="caption">
@@ -334,7 +335,7 @@
         </p>
         <img src="https://quantumatlas.umd.edu/static/entanglement_chart-c1972bded042d9571e841ee153e5d690.png" alt="Entanglement example">
         <p class="caption">
-          Image courtesy of <a href="https://quantumatlas.umd.edu/" target="_blank">The Quantum Atlas</a>
+          Image courtesy of <a href="https://quantumatlas.umd.edu/">The Quantum Atlas</a>
         </p>
 
         <h1 id="algorithms">Algorithms</h1>
@@ -467,7 +468,7 @@
         </p>
         <h3 id="encryption-improving">Improving It</h3>
         <p>
-            Quantum Computers can also create new encyrption keys that are encoded and transported through qubits, making them even stronger than current encryption. These would be safer than current encyrption methods from a both classical and quantum standpoint. For more info, check out <a href="https://quantumxc.com/blog/quantum-cryptography-explained/" target="_blank"> this article</a>.
+            Quantum Computers can also create new encyrption keys that are encoded and transported through qubits, making them even stronger than current encryption. These would be safer than current encyrption methods from a both classical and quantum standpoint. For more info, check out <a href="https://quantumxc.com/blog/quantum-cryptography-explained/"> this article</a>.
         </p>
         <img src="https://cdn.ttgtmedia.com/rms/onlineimages/quantum_cryptography_model-f_mobile.png" alt="Quantum cryptography">
         <p class="caption">
@@ -493,31 +494,35 @@
             </li>
             <li>They're extremely expensive - At least $10,000,000 for a good one</li>
         </ul>
+
+        <h1 id="resources">Additional Resources</h1>
+        <ul>
+            <li><p><a href="https://www.youtube.com/watch?v=ZBaXPY_0TNI" target="_blank">Logic Gates Rotate Qubits</a>, a video explaining what qubits are more specifically and how they are changed</p></li>
+            <li><p><a href="https://www.youtube.com/watch?v=nxIGNbcVKtA" target="_blank">How Quantum Entanglement Works</a>, a sequel video to the previous explaining how it applies to multiple qubits</p></li>
+            <li><p><a href="https://a.co/d/5vBclAN" target="_blank">Quantum Supremacy by Michio Kaku</a>, a book that was very useful for my understanding of this topic</p></li>
+            <li><p><a href="https://www.youtube.com/watch?v=lvTqbM5Dq4Q" target="_blank">Shor's Algorithm Explained</a>, if you didn't understand my explanation this may be more visual</p></li>
+            <li><p><a href="https://www.youtube.com/watch?v=-UlxHPIEVqA" target="_blank">The Map of Quantum Computing</a>, a video explaining many concepts in Quantum Computing including some I didn't cover</p></li>
+            <li><p><a href="https://www.youtube.com/watch?v=ihZXl33t8So" target="_blank">The Map of Topological Quantum Computing</a>, a video explaining many concepts in Quantum Computing, but more focused on the actual physical implementation rather than the ideas behind it</p></li>
+        </ul>
         <div id="footer">
             <p>Created by Kyle Meyers</p>
-            <a href="https://github.com/Kyle-Meyers/quantum-explained" target="_blank">Github</a>
+            <a href="https://github.com/Kyle-Meyers/quantum-explained">Github</a>
         </div>
     </div>
     <script>
         // JavaScript for expanding and collapsing TOC
         document.addEventListener("DOMContentLoaded", function() {
-            const tocContainer = document.getElementById("toc-container");
             const tocButton = document.getElementById("toc-button");
             const tocContent = document.querySelector(".toc-content");
 
             tocButton.addEventListener("click", function() {
                 if (tocContent.style.display === "none") {
                     tocContent.style.display = "block";
+                    tocButton.innerText = "X";
                 } else {
                     tocContent.style.display = "none";
+                    tocButton.innerText = "☰";
                 }
-            });
-
-            const tocSubheaders = document.querySelectorAll(".toc-subheader");
-            tocSubheaders.forEach(function(subheader) {
-                subheader.addEventListener("click", function() {
-                    tocContent.style.display = "block";
-                });
             });
         });
     </script>
